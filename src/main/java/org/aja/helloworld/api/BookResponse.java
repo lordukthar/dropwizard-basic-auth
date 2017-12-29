@@ -3,19 +3,15 @@ package org.aja.helloworld.api;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Book {
+public class BookResponse {
     private String title;
     private String published;
     private Integer id;
 
-    public Book() {
-
-    }
-
     @JsonCreator
-    public Book(@JsonProperty(value = "title",required = true) String title,
-                @JsonProperty(value = "published",required = true) String published,
-                @JsonProperty(value = "id",required = true) Integer id) {
+    public BookResponse(@JsonProperty(value = "title",required = true) String title,
+                        @JsonProperty(value = "published",required = true) String published,
+                        @JsonProperty(value = "id",required = true) Integer id) {
         this.title = title;
         this.published = published;
         this.id = id;

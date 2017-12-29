@@ -5,14 +5,20 @@ import io.dropwizard.Application;
 import io.dropwizard.auth.AuthDynamicFeature;
 import io.dropwizard.auth.AuthValueFactoryProvider;
 import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.jdbi.DBIFactory;
+import io.dropwizard.migrations.MigrationsBundle;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.aja.helloworld.auth.ExampleAuthenticator;
 import org.aja.helloworld.auth.ExampleAuthorizer;
 import org.aja.helloworld.core.User;
-import org.aja.helloworld.resources.HelloWorldResource;
+import org.aja.helloworld.jdbi.BookDao;
+import org.aja.helloworld.resources.BookResource;
 import org.aja.helloworld.resources.ProtectedResource;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
+import org.skife.jdbi.v2.DBI;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
@@ -24,12 +30,24 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         new HelloWorldApplication().run(args);
     }
 
+    @Override
+    public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
+        bootstrap.addBundle(new MigrationsBundle<HelloWorldConfiguration>() {
+            @Override
+            public DataSourceFactory getDataSourceFactory(HelloWorldConfiguration configuration) {
+                return configuration.getDataSourceFactory();
+            }
+        });
+    }
 
 
     @Override
     public void run(HelloWorldConfiguration configuration, Environment environment) throws Exception {
 
-
+        final DBIFactory factory = new DBIFactory();
+        final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
+        final BookDao dao = jdbi.onDemand(BookDao.class);
+        environment.jersey().register(new BookResource(dao));
 
         environment.jersey().register(new AuthDynamicFeature(new BasicCredentialAuthFilter.Builder<User>()
                 .setAuthenticator(new ExampleAuthenticator())
@@ -39,7 +57,6 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
         environment.jersey().register(RolesAllowedDynamicFeature.class);
         environment.jersey().register(new ProtectedResource());
-        environment.jersey().register(new HelloWorldResource());
 
 
         environment.healthChecks().register("hello-world", new HealthCheck() {
