@@ -13,9 +13,12 @@ import io.dropwizard.setup.Environment;
 import org.aja.helloworld.auth.ExampleAuthenticator;
 import org.aja.helloworld.auth.ExampleAuthorizer;
 import org.aja.helloworld.core.User;
+import org.aja.helloworld.core.WordCache;
 import org.aja.helloworld.jdbi.BookDao;
 import org.aja.helloworld.resources.BookResource;
+import org.aja.helloworld.resources.PersianResource;
 import org.aja.helloworld.resources.ProtectedResource;
+import org.aja.helloworld.resources.TranslateService;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.skife.jdbi.v2.DBI;
@@ -44,6 +47,32 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     @Override
     public void run(HelloWorldConfiguration configuration, Environment environment) throws Exception {
 
+        final FilterRegistration.Dynamic cors =
+                environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+
+        // Configure CORS parameters
+        cors.setInitParameter("allowedOrigins", "*");
+        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");// Configure CORS parameters
+        cors.setInitParameter("allowedOrigins", "*");
+        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+        cors.setInitParameter(CrossOriginFilter.ACCESS_CONTROL_ALLOW_ORIGIN_HEADER, "*");
+        cors.setInitParameter("Access-Control-Allow-Credentials", "true");
+        cors.setInitParameter("Access-Control-Allow-Origin", "http://localhost:4200");
+        cors.setInitParameter("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Headers, Access-Control-Request-Method, Cache-Control, Pragma, Expires");
+        cors.setInitParameter("Access-Control-Allow-Methods\" ", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+
+
+
+
+        // Configure CORS parameters
+        cors.setInitParameter("allowedOrigins", "*");
+        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
+
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "postgresql");
         final BookDao dao = jdbi.onDemand(BookDao.class);
@@ -57,6 +86,12 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
         environment.jersey().register(RolesAllowedDynamicFeature.class);
         environment.jersey().register(new ProtectedResource());
+        TranslateService translateService = new TranslateService();
+        WordCache wordCache = new WordCache(translateService);
+        environment.jersey().register(new PersianResource(translateService, wordCache));
+
+
+
 
 
         environment.healthChecks().register("hello-world", new HealthCheck() {
@@ -65,15 +100,6 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
                 return Result.healthy();
             }
         });
-
-        final FilterRegistration.Dynamic cors =
-                environment.servlets().addFilter("CORS", CrossOriginFilter.class);
-
-        // Configure CORS parameters
-        cors.setInitParameter("allowedOrigins", "*");
-        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
-        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
-        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
 
 
