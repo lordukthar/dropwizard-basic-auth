@@ -3,7 +3,7 @@
 To run
 
 Start with:
-java -jar java -jar target/hello-world-1.0-SNAPSHOT.jar server example.yml
+>>java -jar java -jar target/hello-world-1.0-SNAPSHOT.jar server example.yml
 
 Postman 
 GET http://localhost:10000/protected/admin
