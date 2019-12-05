@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.knowm.dropwizard.sundial.SundialConfiguration;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -39,5 +40,15 @@ public class HelloWorldConfiguration extends Configuration {
 
     public byte[] getJwtTokenSecret() throws UnsupportedEncodingException {
         return jwtTokenSecret.getBytes("UTF-8");
+    }
+
+    @Valid
+    @NotNull
+    public SundialConfiguration sundialConfiguration = new SundialConfiguration();
+
+    @JsonProperty("sundial")
+    public SundialConfiguration getSundialConfiguration() {
+
+        return sundialConfiguration;
     }
 }

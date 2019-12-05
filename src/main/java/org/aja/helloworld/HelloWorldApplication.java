@@ -21,6 +21,8 @@ import org.aja.helloworld.resources.ProtectedResource;
 import org.aja.helloworld.resources.TranslateService;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
+import org.knowm.dropwizard.sundial.SundialBundle;
+import org.knowm.dropwizard.sundial.SundialConfiguration;
 import org.skife.jdbi.v2.DBI;
 
 import javax.servlet.DispatcherType;
@@ -39,6 +41,14 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
             @Override
             public DataSourceFactory getDataSourceFactory(HelloWorldConfiguration configuration) {
                 return configuration.getDataSourceFactory();
+            }
+        });
+
+        bootstrap.addBundle(new SundialBundle<HelloWorldConfiguration>() {
+
+            @Override
+            public SundialConfiguration getSundialConfiguration(HelloWorldConfiguration configuration) {
+                return configuration.getSundialConfiguration();
             }
         });
     }
@@ -89,6 +99,8 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
         TranslateService translateService = new TranslateService();
         WordCache wordCache = new WordCache(translateService);
         environment.jersey().register(new PersianResource(translateService, wordCache));
+
+        environment.getApplicationContext().setAttribute("WordCache", wordCache);
 
 
 

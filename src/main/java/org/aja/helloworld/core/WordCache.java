@@ -8,10 +8,11 @@ import org.aja.helloworld.resources.TranslateService;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class WordCache {
 
    private final TranslateService translateService;
-    private final LoadingCache<String, Translate> cache;
+   private final LoadingCache<String, Translate> cache;
 
     public WordCache(TranslateService translateService) {
         this.translateService = translateService;
@@ -30,11 +31,20 @@ public class WordCache {
                 .expireAfterAccess(30, TimeUnit.SECONDS)
                 .build(loader);
 
+        translateService.getAllWords().forEach(x -> {
+            cache.put(x.getSwedish(), x);
+        });
+
     }
 
-    public Translate getPersianWord(String persianWord) {
-        return cache.getUnchecked(persianWord);
+    public Translate getPersianWord(String swedishWord) {
+        return cache.getUnchecked(swedishWord);
     }
 
 
+    public void reloadCache() {
+        translateService.getAllWords().forEach(x -> {
+            cache.put(x.getSwedish(), x);
+        });
+    }
 }
