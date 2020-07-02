@@ -1,0 +1,352 @@
+{
+  "Konfiguration_Paminnelse_dokumentmall_epost": "mailPaminnelse",
+  "creator": "TEST7",
+  "decision": null,
+  "ispLastActionKey": "granskaOchGodkann",
+  "ispState": "Pågående",
+  "document": {
+    "id": "4157267",
+    "type": {
+      "id": "20122",
+      "name": "Bolagets självdeklaration"
+    }
+  },
+  "connectedTo": {
+    "partId": "",
+    "name": ""
+  },
+  "completionType": {
+    "id": "20122",
+    "name": "Bolagets självdeklaration"
+  },
+  "conditionalComplementary": false,
+  "ispLastActionTime": 1529414294041,
+  "ispLastActionName": "Granska & Godkänn",
+  "lppPublishToWeb": true,
+  "lppPublishToWebLastActionTime": {
+    "nano": 216000000,
+    "hour": 15,
+    "minute": 16,
+    "second": 39,
+    "dayOfMonth": 19,
+    "dayOfWeek": "TUESDAY",
+    "dayOfYear": 170,
+    "monthValue": 6,
+    "year": 2018,
+    "month": "JUNE",
+    "chronology": {
+      "id": "ISO",
+      "calendarType": "iso8601"
+    }
+  },
+  "Konfiguration_Paminnelser_automatiska": "epostForst",
+  "lppKomplettering": true,
+  "parentProcessId": "24583711",
+  "ispClaimer": "TEST7",
+  "options": [
+    {
+      "id": 322725,
+      "partId": 322725,
+      "custType": "person",
+      "name": "Sofie Axelsson",
+      "fullName": null,
+      "orgnbr": "196508259600",
+      "notes": [],
+      "externalUpdateDate": 1469234038000,
+      "interestedPartRelations": [],
+      "firstName": "Sofie",
+      "lastName": "Axelsson",
+      "middleName": null,
+      "gender": "Kvinna",
+      "fodelsedag": "19650825",
+      "kaella": "SPAR",
+      "avlidenDatum": null,
+      "fbAddress": {
+        "id": 41988,
+        "line1": "C/O SBAB - TEST",
+        "line2": "C/O SBAB - TEST BOX 27308",
+        "line3": null,
+        "country": "SVERIGE",
+        "zipCode": "10254",
+        "primary": false,
+        "type": 1,
+        "city": "STOCKHOLM",
+        "deletePostalAddress": false,
+        "copyFromLegalAddress": false
+      },
+      "sarsklidAddress": {
+        "id": null,
+        "line1": null,
+        "line2": null,
+        "line3": null,
+        "country": null,
+        "zipCode": null,
+        "primary": false,
+        "type": 0,
+        "city": null,
+        "deletePostalAddress": false,
+        "copyFromLegalAddress": false
+      },
+      "primarAddress": {
+        "id": 41988,
+        "line1": "C/O SBAB - TEST",
+        "line2": "C/O SBAB - TEST BOX 27308",
+        "line3": null,
+        "country": "SVERIGE",
+        "zipCode": "10254",
+        "primary": false,
+        "type": 1,
+        "city": "STOCKHOLM",
+        "deletePostalAddress": false,
+        "copyFromLegalAddress": false
+      },
+      "mobileNumber": {
+        "id": 3015822,
+        "type": "MOBILE",
+        "dayTime": true,
+        "nightTime": false,
+        "deleteLiveAddress": false,
+        "number": "76564860"
+      },
+      "altPhoneNumber": {
+        "id": 2015822,
+        "type": "LAND_LINE",
+        "dayTime": false,
+        "nightTime": true,
+        "deleteLiveAddress": false,
+        "number": "12345678"
+      },
+      "faxNumber": null,
+      "emailAddress": {
+        "id": 1015822,
+        "address": "test@emailyrqmdepf.com",
+        "note": null,
+        "dayTime": true,
+        "nightTime": false,
+        "deleteEmail": false
+      },
+      "altEmailAddress": null,
+      "custodians": [],
+      "notisEmail": true,
+      "notisSms": true,
+      "hasEnergiguidenText": null,
+      "employee": false,
+      "protected": false
+    },
+    {
+      "id": 1409285,
+      "partId": 1409285,
+      "custType": "person",
+      "name": "SYS SIV BLOMQVIST",
+      "fullName": null,
+      "orgnbr": "197005081265",
+      "notes": [],
+      "externalUpdateDate": 1447237960000,
+      "interestedPartRelations": [],
+      "firstName": "SYS",
+      "lastName": "SIV BLOMQVIST",
+      "middleName": null,
+      "gender": "Kvinna",
+      "fodelsedag": "19700508",
+      "kaella": "SPAR",
+      "avlidenDatum": null,
+      "fbAddress": {
+        "id": 45721,
+        "line1": "Bra UC ACC",
+        "line2": "BOX 27308",
+        "line3": null,
+        "country": "SVERIGE",
+        "zipCode": "10254",
+        "primary": false,
+        "type": 1,
+        "city": "STOCKHOLM",
+        "deletePostalAddress": false,
+        "copyFromLegalAddress": false
+      },
+      "sarsklidAddress": {
+        "id": null,
+        "line1": null,
+        "line2": null,
+        "line3": null,
+        "country": null,
+        "zipCode": null,
+        "primary": false,
+        "type": 0,
+        "city": null,
+        "deletePostalAddress": false,
+        "copyFromLegalAddress": false
+      },
+      "primarAddress": {
+        "id": 45721,
+        "line1": "Bra UC ACC",
+        "line2": "BOX 27308",
+        "line3": null,
+        "country": "SVERIGE",
+        "zipCode": "10254",
+        "primary": false,
+        "type": 1,
+        "city": "STOCKHOLM",
+        "deletePostalAddress": false,
+        "copyFromLegalAddress": false
+      },
+      "mobileNumber": {
+        "id": 3016799,
+        "type": "MOBILE",
+        "dayTime": true,
+        "nightTime": false,
+        "deleteLiveAddress": false,
+        "number": "89444516"
+      },
+      "altPhoneNumber": {
+        "id": 2016799,
+        "type": "LAND_LINE",
+        "dayTime": false,
+        "nightTime": true,
+        "deleteLiveAddress": false,
+        "number": "89444516"
+      },
+      "faxNumber": null,
+      "emailAddress": {
+        "id": 1016799,
+        "address": "test@emails0dmlqqp.com",
+        "note": null,
+        "dayTime": true,
+        "nightTime": false,
+        "deleteEmail": false
+      },
+      "altEmailAddress": null,
+      "custodians": [],
+      "notisEmail": true,
+      "notisSms": true,
+      "hasEnergiguidenText": null,
+      "employee": false,
+      "protected": false
+    }
+  ],
+  "notes": [
+    {
+      "author": "Kalle Kula",
+      "createdTime": "2019-08-05 13:03",
+      "timeStamp": 1565003003653,
+      "text": "Här kommer den första notisen som inte blir så lång. Och så en mening till",
+      "externalOrigin": true,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "TEST12",
+      "createdTime": "2019-08-05 13:05",
+      "timeStamp": 1565003128727,
+      "text": "Detta är ett meddelande till Tink!",
+      "externalOrigin": false,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "Anders Jacobsson",
+      "createdTime": "2019-08-05 13:06",
+      "timeStamp": 1565003161093,
+      "text": "Nytt meddelande",
+      "externalOrigin": true,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "TEST12",
+      "createdTime": "2019-08-05 13:25",
+      "timeStamp": 1565004324207,
+      "text": "synlig",
+      "externalOrigin": false,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "Anders Jacobsson",
+      "createdTime": "2019-08-05 13:26",
+      "timeStamp": 1565004379321,
+      "text": "Nytt meddelande 2",
+      "externalOrigin": true,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "TEST12",
+      "createdTime": "2019-08-05 13:26",
+      "timeStamp": 1565004405017,
+      "text": "synlig 2",
+      "externalOrigin": false,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "Anders Jacobsson",
+      "createdTime": "2019-08-05 13:26",
+      "timeStamp": 1565004417287,
+      "text": "Nytt meddelande 3",
+      "externalOrigin": true,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "TEST12",
+      "createdTime": "2019-08-05 13:27",
+      "timeStamp": 1565004464644,
+      "text": "synlig 3",
+      "externalOrigin": false,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "Anders Jacobsson",
+      "createdTime": "2019-08-05 13:28",
+      "timeStamp": 1565004485125,
+      "text": "Nytt meddelande 4",
+      "externalOrigin": true,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    },
+    {
+      "author": "TEST12",
+      "createdTime": "2019-08-05 13:32",
+      "timeStamp": 1565004754687,
+      "text": "osynlig 4",
+      "externalOrigin": false,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": false
+      }
+    },
+    {
+      "author": "Anders Jacobsson",
+      "createdTime": "2019-08-05 13:32",
+      "timeStamp": 1565004763739,
+      "text": "Nytt meddelande 5",
+      "externalOrigin": true,
+      "publishTo": {
+        "internetBanken": false,
+        "externalPartner": true
+      }
+    }
+  ],
+  "ispClaimNext": false,
+  "Konfiguration_Paminnelse_dokumentmall_sms": "smsPaminnelse",
+  "Konfiguration_Paminnelse_antalDagarInnanUtskickAvPaminnelse": "5"
+}

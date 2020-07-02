@@ -25,7 +25,7 @@ server:
 #  hardNofileLimit: 1000
   applicationConnectors:
     - type: http
-      port: 10000
+      port: 12000
     #this requires the alpn-boot library on the JVM's boot classpath
     #- type: h2
     #  port: 8445
@@ -33,7 +33,7 @@ server:
     #  keyStorePassword: example
   adminConnectors:
     - type: http
-      port: 10001
+      port: 12001
 
 # Logging settings.
 logging:

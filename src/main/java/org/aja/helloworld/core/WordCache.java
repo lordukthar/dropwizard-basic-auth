@@ -43,8 +43,9 @@ public class WordCache {
 
 
     public void reloadCache() {
-        translateService.getAllWords().forEach(x -> {
+        System.out.println("reload cache");
+      /*  translateService.getAllWords().forEach(x -> {
             cache.put(x.getSwedish(), x);
-        });
+        });*/
     }
 }
